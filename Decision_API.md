@@ -1,4 +1,6 @@
-Hola Esta es una pueba de documentación
+Hola
+
+Esta es una pueba de documentación
 ====================
 
 # este es un titulo grande
@@ -26,9 +28,9 @@ Esto en cambio en *italica*
 
 
 
-![Don Ramón](https://c.tenor.com/JdKD0wTKE1MAAAAM/olor-el-chavo-del-ocho.gif)
+
 
 | Syntax      | Description |
 | ----------- | ----------- |
-| Header      | Title       |
+| Header      | Title   ![Don Ramón](https://c.tenor.com/JdKD0wTKE1MAAAAM/olor-el-chavo-del-ocho.gif)    |
 | Paragraph   | Text        |
