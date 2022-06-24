@@ -39,7 +39,7 @@ public class AccountController {
  
    private List<String> listaCuentas(){
        String[] unEjemplo = new String[] { 
-               "ahorros", "credito", "hipotecaria", "afp", "ahorros", "vis",
+               "ahorros", "credito", "hipotecaria", "afp", "ahorros", "vista",
                "ahorros", "kids", "amparada", "afp", "blue", "vista", "blue"
        };
        return Arrays.asList(unEjemplo);
