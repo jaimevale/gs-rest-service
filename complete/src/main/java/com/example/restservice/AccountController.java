@@ -22,7 +22,8 @@ public class AccountController {
     * @return
     */
    private String[] cuentasNoRepetidas() {
-       
+
+       return new String[]{"crédito", "hipotecaria", "amparada" };
 
    }
 

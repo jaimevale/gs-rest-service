@@ -18,7 +18,7 @@ public class GreetingController {
 	}
 	
 	@GetMapping("/factorial")
-	public BigInteger factorial(@RequestParam(value="value") int value) {
+	public Mono<BigInteger> factorial(@RequestParam(value="value") int value) {
 		return fact(value);
 	}
  
