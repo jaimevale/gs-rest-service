@@ -22,20 +22,21 @@ Se espera que todo candidato sepa compilar, ejecutar y hacer debug de un proyect
 
 ### Procedimiento
 
-La forma más simple de cargar el proyecto es usar GIT 
+La forma más simple de cargar el proyecto es usar GIT. 
+Los siguientes comandos hacen clone del proyecto y ejecutan spring-boot:
 
 
 ```
-git clone https://github.com/<nombre usuario>/<nombre proyecto>.git
-```
-
-
-Localizar el directorio de proyecto (donde esta el archivo pom.xml) y ejecutar el comando 
-
+git clone https://github.com/jaimevale/gs-rest-service.git
+cd gs-rest-service/complete
+mvn spring-boot:run
 
 ```
-./mvnw spring-boot:run
-```
+
+
+
+
+
 
 
 O si quiere primero compilar `./mvnw compile `
