@@ -13,6 +13,7 @@ public class CollatzConjectureController {
 	
 	@GetMapping("/collatz")
 	public BigInteger collatzLength(@RequestParam(value="value", defaultValue = "5") int value) {
+		if(value<1) return BigInteger.ZERO;
 		return length(value);
 	}
  
@@ -23,9 +24,11 @@ public class CollatzConjectureController {
 	}
 
 	private BigInteger length(int n){
-		if(n==1)
-			return BigInteger.ONE;
 		System.out.print(" "+n);
+		if(n==1){
+			System.out.println(".");
+			return BigInteger.ONE;
+		}
 		return BigInteger.ONE.add(length(collatz(n)));
 	}
 }
