@@ -11,23 +11,23 @@ import java.math.BigInteger;
 public class CollatzController {
 	
 	@GetMapping("/collatz")
-	public BigInteger collatzLength(@RequestParam(value="value", defaultValue = "5") BigInteger value) {
-		if(value.compareTo(BigInteger.ONE)<1) return BigInteger.ZERO;
+	public int collatzLength(@RequestParam(value="value", defaultValue = "5") int value) {
+		if(value<1) return 0;
 		return length(value);
 	}
 
 
-	BigInteger collatz(BigInteger x){
-		if(x.mod(BigInteger.TWO).equals(BigInteger.ZERO)) return x.divide(BigInteger.TWO);
-		return BigInteger.valueOf(3).multiply(x).add(BigInteger.ONE); //3*x+1;
+	int collatz(int x){
+		if(x%2==0) return x/2;
+		return 3*x+1;
 	}
 
-	private BigInteger length(BigInteger n){
+	private int length(int n){
 		System.out.print(" "+n);
-		if(BigInteger.ONE.equals(n)){
+		if(n==1){
 			System.out.println(".");
-			return BigInteger.ONE;
+			return 1;
 		}
-		return BigInteger.ONE.add(length(collatz(n)));
+		return length(collatz(n))+1;
 	}
 }
