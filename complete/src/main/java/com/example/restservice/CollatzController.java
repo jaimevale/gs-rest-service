@@ -26,7 +26,7 @@ public class CollatzController {
 		System.out.print(" "+n);
 		if(n==1){
 			System.out.println(".");
-			return 1;
+			return 0;
 		}
 		return length(collatz(n))+1;
 	}
