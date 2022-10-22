@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+record Cuenta(  String tipo, 
+                int id,
+                double saldo
+                ) {}
+
+
 @RestController
 public class AccountController {
 
@@ -28,20 +34,20 @@ public class AccountController {
    }
 
 
-    private List<String> listaCuentas(){
-        var unEjemplo=new ArrayList<String>();
-        unEjemplo.add("ahorros");
-        unEjemplo.add("crédito");
-        unEjemplo.add("hipotecaria");
-        unEjemplo.add("afp");
-        unEjemplo.add("ahorros");
-        unEjemplo.add("afp");
-        unEjemplo.add("amparada");
-        unEjemplo.add("ahorros");
-        unEjemplo.add("vista");
-        unEjemplo.add("afp");
-        unEjemplo.add("vista");
-        unEjemplo.add("ahorros");
+    private List<Cuenta> listaCuentas(){
+        var unEjemplo=new ArrayList<Cuenta>();
+        unEjemplo.add(new Cuenta("ahorros",    1,   100_000));
+        unEjemplo.add(new Cuenta("crédito",    2,   200_000));
+        unEjemplo.add(new Cuenta("afp",        3,   300_000));
+        unEjemplo.add(new Cuenta("ahorros",    4,   300_000));
+        unEjemplo.add(new Cuenta("hipotecaria",5,   400_000));
+        unEjemplo.add(new Cuenta("afp",        6,   400_000));
+        unEjemplo.add(new Cuenta("amparada",   7,   500_000));
+        unEjemplo.add(new Cuenta("ahorros",    8,   500_000));
+        unEjemplo.add(new Cuenta("vista",      9,   500_000));
+        unEjemplo.add(new Cuenta("afp",       10,   500_000));
+        unEjemplo.add(new Cuenta("vista",     11,   600_000));
+        unEjemplo.add(new Cuenta("ahorros",   12, 1_700_000));
 
         return unEjemplo;
     }
