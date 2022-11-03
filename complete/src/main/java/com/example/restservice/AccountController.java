@@ -30,7 +30,7 @@ public class AccountController {
    private String[] cuentasNoRepetidas() {
 
        return new String[]{"crédito", "hipotecaria", "amparada" };
-
+// No se pide un distinct , se piden los tipos de cuentas no repetidos
    }
 
 
