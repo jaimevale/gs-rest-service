@@ -15,7 +15,7 @@ Se espera que todo candidato sepa compilar, ejecutar y hacer debug de un proyect
 
 
 
-* Tener instalada una máquina virtual Java 11 JDK o superior. Cualquier distribución es válida pero si se requiere Java 11 o superior.
+* Tener instalada una máquina virtual Java 17 JDK o superior. Cualquier distribución es válida pero si se requiere Java 11 o superior.
 * Tener instalado y configurado GIT
 * Algun controlador de dependencias Maven o Gradle
 
