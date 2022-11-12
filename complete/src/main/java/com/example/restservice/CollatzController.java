@@ -10,7 +10,7 @@ import java.math.BigInteger;
 @RestController
 public class CollatzController {
 	
-	@GetMapping("/collatz")
+	@GetMapping("/longitud-collatz")
 	public int collatzLength(@RequestParam(value="value", defaultValue = "5") int value) {
 		if(value<1) return 0;
 		return length(value);
@@ -24,10 +24,7 @@ public class CollatzController {
 
 	private int length(int n){
 		System.out.print(" "+n);
-		if(n==1){
-			System.out.println(".");
-			return 0;
-		}
-		return length(collatz(n))+1;
+		return 7;
+		// implementar un método recursivo que entregue la longitud de collatz
 	}
 }

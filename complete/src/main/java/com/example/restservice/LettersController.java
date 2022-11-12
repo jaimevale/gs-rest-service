@@ -10,7 +10,7 @@ public class LettersController {
 
     @GetMapping("/letras")
     public String[] actividadesAsStream(
-        @RequestParam(value="palabra", defaultValue = "am")  String palabra){
-            return new String[]{"am","an","bm","bn"};
+        @RequestParam(value="palabra", defaultValue = "sol")  String palabra){
+            return new String[]{"sol","som","spl","spm","tol","tom","tpl","tpm"};
     }
 }
