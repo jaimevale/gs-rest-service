@@ -3,15 +3,18 @@ package com.example.restservice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 public class AccountController {
     /**
      * Solo interesan las cuentas que aparezcan NO repetidas
      *
-     * @return
+     * @return lista de los tipos de cuentas no repetidos
      */
     @GetMapping("/cuentas-unicas")
     public String[] cuentasUnicas() {
@@ -19,7 +22,17 @@ public class AccountController {
 // No se pide un distinct , se piden los tipos de cuentas no repetidos
     }
 
+    @GetMapping("/saldo-acumulado")
+    public Map<String, String> saldo() {
+      Map<String, String> map = Map.of("hipotecaria", "COP400,000.00",
+                "crédito", "COP200,000.00",
+                "afp", "COP1,200,000.00",
+                "ahorros", "COP2,600,000.00",
+                "vista", "COP1,100,000.00",
+                "amparada", "COP500,000.00");
 
+      return map;
+    }
 
     private List<Cuenta> listaCuentas() {
         var unEjemplo = new ArrayList<Cuenta>();
