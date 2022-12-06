@@ -9,10 +9,11 @@ import java.math.BigInteger;
 
 @RestController
 public class CollatzController {
-	
+	int MAX_TIME_OUT_PROCESSING_MS = 20;
 	@GetMapping("/longitud-collatz")
 	public int collatzLength(@RequestParam(value="value", defaultValue = "5") int value) {
 		if(value<1) return 0;
+		// controlar que esta acción no se toma más tiempo que el número de milisegundos en MAX_TIME_OUT_PROCESSING_MS
 		return length(value);
 	}
 
