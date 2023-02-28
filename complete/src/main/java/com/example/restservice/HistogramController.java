@@ -5,25 +5,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @RestController
 public class HistogramController {
-    String linea = "<br>"; 
-    String voto="&#9989;";
-    String cero="&#11093;";
+    final String NLINEA = "<br>";
+    final String VOTO="&#9989;";
+    final String CERO="&#11093;";
 
-    @GetMapping("/histograma")
     public String histograma(
-            @RequestParam(value="valores", defaultValue = "5,2,3,2,3,3,3,1")  int[] values){
+            @RequestParam(value="valores", defaultValue = "1,2,3,2,3,3,3,5")  int[] values){
 
         StringBuilder resultado = new StringBuilder();
-        resultado.append("1: ").append(voto).append(linea); //una sola repeticion
-        resultado.append("2: ").append(voto).append(voto).append(linea);
-        resultado.append("3: ").append(voto).append(voto).append(voto).append(voto).append(linea); //4 veces
-        resultado.append("4: ").append(cero).append(linea);
-        resultado.append("5: ").append(voto).append(linea);
-        System.out.println(resultado.toString());
+        resultado.append("1: ").append(VOTO).append(NLINEA); //una sola repeticion
+        resultado.append("2: ").append(VOTO).append(VOTO).append(NLINEA);
+        resultado.append("3: ").append(VOTO).append(VOTO).append(VOTO).append(VOTO).append(NLINEA); //4 veces
+        resultado.append("4: ").append(CERO).append(NLINEA);
+        resultado.append("5: ").append(VOTO).append(NLINEA);
         return resultado.toString();
     }
 }
