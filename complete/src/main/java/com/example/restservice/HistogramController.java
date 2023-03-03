@@ -14,6 +14,7 @@ public class HistogramController {
     final String VOTO="&#9989;";
     final String CERO="&#11093;";
 
+     @GetMapping("/histograma")
     public String histograma(
             @RequestParam(value="valores", defaultValue = "1,2,3,2,3,3,3,5")  int[] values){
 
