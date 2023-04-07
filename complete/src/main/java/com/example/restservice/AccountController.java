@@ -34,7 +34,7 @@ public class AccountController {
       return map;
     }
 
-    private List<Cuenta> listaCuentas() {
+    private Stream<Cuenta> listaCuentas() {
         var unEjemplo = new ArrayList<Cuenta>();
         unEjemplo.add(new Cuenta("ahorros", 1, 100_000));
         unEjemplo.add(new Cuenta("crédito", 2, 200_000));
@@ -49,7 +49,7 @@ public class AccountController {
         unEjemplo.add(new Cuenta("vista", 11, 600_000));
         unEjemplo.add(new Cuenta("ahorros", 12, 1_700_000));
 
-        return unEjemplo;
+        return unEjemplo.stream();
     }
 }
 
