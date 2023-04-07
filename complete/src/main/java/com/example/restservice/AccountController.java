@@ -3,11 +3,9 @@ package com.example.restservice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RestController
 public class AccountController {
@@ -50,6 +48,7 @@ public class AccountController {
         unEjemplo.add(new Cuenta("ahorros", 12, 1_700_000));
 
         return unEjemplo.stream();
+
     }
 }
 
