@@ -24,10 +24,11 @@ public class AccountController {
     public Map<String, String> saldo() {
       Map<String, String> map = Map.of("hipotecaria", "COP400,000.00",
                 "crédito", "COP200,000.00",
-                "afp", "COP1,200,000.00",
-                "ahorros", "COP2,600,000.00",
-                "vista", "COP1,100,000.00",
-                "amparada", "COP500,000.00");
+                "amparada", "COP500,000.00",
+                "afp", "COP900,000.00",
+                "ahorros", "COP2,500,000.00",
+                "vista", "COP600,000.00"
+                );
 
       return map;
     }
