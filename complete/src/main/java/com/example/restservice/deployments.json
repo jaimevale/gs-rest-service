@@ -1,0 +1,1028 @@
+{
+    "kind": "DeploymentList",
+    "apiVersion": "apps/v1",
+    "metadata": {
+        "resourceVersion": "3878885881"
+    },
+    "items": [
+        {
+            "metadata": {
+                "name": "datapower-operator",
+                "namespace": "apiconnect-qa",
+                "uid": "3a2b4267-e901-4495-addc-1164dad6a463",
+                "resourceVersion": "3864633445",
+                "generation": 466,
+                "creationTimestamp": "2024-03-27T00:29:33Z",
+                "labels": {
+                    "app.kubernetes.io/instance": "datapower-operator",
+                    "app.kubernetes.io/managed-by": "datapower-operator",
+                    "app.kubernetes.io/name": "datapower-operator",
+                    "olm.deployment-spec-hash": "74b856d56d",
+                    "olm.owner": "datapower-operator.v1.6.12",
+                    "olm.owner.kind": "ClusterServiceVersion",
+                    "olm.owner.namespace": "apiconnect-qa",
+                    "operators.coreos.com/datapower-operator.apiconnect-qa": ""
+                },
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "operators.coreos.com/v1alpha1",
+                        "kind": "ClusterServiceVersion",
+                        "name": "datapower-operator.v1.6.12",
+                        "uid": "907bfb1f-7cf2-4753-b987-425c5901d02f",
+                        "controller": false,
+                        "blockOwnerDeletion": false
+                    }
+                ]
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "matchLabels": {
+                        "app.kubernetes.io/instance": "datapower-operator",
+                        "app.kubernetes.io/managed-by": "datapower-operator",
+                        "app.kubernetes.io/name": "datapower-operator",
+                        "name": "datapower-operator"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app.kubernetes.io/instance": "datapower-operator",
+                            "app.kubernetes.io/managed-by": "datapower-operator",
+                            "app.kubernetes.io/name": "datapower-operator",
+                            "name": "datapower-operator"
+                        },
+                        "annotations": {
+                            "alm-examples": "[\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta3\",\n    \"kind\": \"DataPowerService\",\n    \"metadata\": {\n      \"name\": \"quickstart\"\n    },\n    \"spec\": {\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-RJON-CCAT5F\",\n        \"use\": \"nonproduction\"\n      },\n      \"replicas\": 1,\n      \"resources\": {\n        \"limits\": {\n          \"memory\": \"4Gi\"\n        },\n        \"requests\": {\n          \"cpu\": 1,\n          \"memory\": \"4Gi\"\n        }\n      },\n      \"users\": [\n        {\n          \"accessLevel\": \"privileged\",\n          \"name\": \"admin\",\n          \"passwordSecret\": \"your-admin-credentials-here\"\n        }\n      ],\n      \"version\": \"10.5-lts\"\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta3\",\n    \"kind\": \"DataPowerService\",\n    \"metadata\": {\n      \"name\": \"development\"\n    },\n    \"spec\": {\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-RJON-CCAT5F\",\n        \"use\": \"nonproduction\"\n      },\n      \"replicas\": 3,\n      \"resources\": {\n        \"limits\": {\n          \"memory\": \"8Gi\"\n        },\n        \"requests\": {\n          \"cpu\": 4,\n          \"memory\": \"4Gi\"\n        }\n      },\n      \"users\": [\n        {\n          \"accessLevel\": \"privileged\",\n          \"name\": \"admin\",\n          \"passwordSecret\": \"your-admin-credentials-here\"\n        }\n      ],\n      \"version\": \"10.5-lts\"\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta3\",\n    \"kind\": \"DataPowerService\",\n    \"metadata\": {\n      \"name\": \"production\"\n    },\n    \"spec\": {\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-RJON-CCAT5F\",\n        \"use\": \"production\"\n      },\n      \"replicas\": 5,\n      \"resources\": {\n        \"limits\": {\n          \"memory\": \"16Gi\"\n        },\n        \"requests\": {\n          \"cpu\": 8,\n          \"memory\": \"4Gi\"\n        }\n      },\n      \"users\": [\n        {\n          \"accessLevel\": \"privileged\",\n          \"name\": \"admin\",\n          \"passwordSecret\": \"your-admin-credentials-here\"\n        }\n      ],\n      \"version\": \"10.5-lts\"\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta1\",\n    \"kind\": \"DataPowerService\",\n    \"metadata\": {\n      \"name\": \"v1beta1-sample\"\n    },\n    \"spec\": {\n      \"license\": {\n        \"accept\": false,\n        \"use\": \"nonproduction\"\n      },\n      \"replicas\": 1,\n      \"resources\": {\n        \"limits\": {\n          \"memory\": \"4Gi\"\n        },\n        \"requests\": {\n          \"cpu\": 4,\n          \"memory\": \"4Gi\"\n        }\n      },\n      \"users\": [\n        {\n          \"accessLevel\": \"privileged\",\n          \"name\": \"admin\",\n          \"passwordSecret\": \"your-admin-credentials-here\"\n        }\n      ],\n      \"version\": \"10.0.0.0\"\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta1\",\n    \"kind\": \"DataPowerServiceBinding\",\n    \"metadata\": {\n      \"name\": \"v1beta1-sample\"\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta1\",\n    \"kind\": \"DataPowerRollout\",\n    \"metadata\": {\n      \"name\": \"v1beta1-sample\"\n    },\n    \"spec\": {\n      \"nextPartition\": 4\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta2\",\n    \"kind\": \"DataPowerService\",\n    \"metadata\": {\n      \"name\": \"v1beta2-sample\"\n    },\n    \"spec\": {\n      \"license\": {\n        \"accept\": false,\n        \"use\": \"nonproduction\"\n      },\n      \"replicas\": 1,\n      \"resources\": {\n        \"limits\": {\n          \"memory\": \"4Gi\"\n        },\n        \"requests\": {\n          \"cpu\": 4,\n          \"memory\": \"4Gi\"\n        }\n      },\n      \"users\": [\n        {\n          \"accessLevel\": \"privileged\",\n          \"name\": \"admin\",\n          \"passwordSecret\": \"your-admin-credentials-here\"\n        }\n      ],\n      \"version\": \"10.0.0.0\"\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta2\",\n    \"kind\": \"DataPowerMonitor\",\n    \"metadata\": {\n      \"name\": \"v1beta2-sample\"\n    },\n    \"spec\": {\n      \"lifecycleDebounceMs\": 10000,\n      \"monitorGatewayPeering\": false,\n      \"peeringRecoveryCheckIntervalMs\": 1000\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta1\",\n    \"kind\": \"DataPowerMustGather\",\n    \"metadata\": {\n      \"name\": \"v1beta1-sample\"\n    },\n    \"spec\": {\n      \"serviceName\": \"example\"\n    }\n  },\n  {\n    \"apiVersion\": \"datapower.ibm.com/v1beta1\",\n    \"kind\": \"DataPowerMustGatherManager\",\n    \"metadata\": {\n      \"name\": \"v1beta1-sample\"\n    },\n    \"spec\": {\n      \"onEvents\": [\n        \"PodEvent:Restart\"\n      ],\n      \"serviceName\": \"example\"\n    }\n  }\n]",
+                            "alm-examples-metadata": "{\n  \"quickstart\": {\n    \"name\": \"Quick start\",\n    \"description\": \"Quickly deploy a DataPower Service with a single replica and minimal footprint\",\n    \"resources\": {\n      \"cpu\": \"1\",\n      \"memory\": \"4 GB\",\n      \"vpc\": \"0.5\"\n    }\n  },\n  \"development\": {\n    \"name\": \"Development\",\n    \"description\": \"Deploy a DataPower Service for development with 3 replicas\",\n    \"resources\": {\n      \"cpu\": \"12\",\n      \"memory\": \"24 GB\",\n      \"vpc\": \"6\"\n    }\n  },\n  \"production\": {\n    \"name\": \"Production\",\n    \"description\": \"Deploy a production capable DataPower Service with 5 replicas\",\n    \"resources\": {\n      \"cpu\": \"40\",\n      \"memory\": \"80 GB\",\n      \"vpc\": \"40\"\n    }\n  }\n}",
+                            "capabilities": "Seamless Upgrades",
+                            "categories": "Developer Tools,Integration \u0026 Delivery,Networking,Security,Streaming \u0026 Messaging",
+                            "com.ibm.cp4i/create-description": "IBM DataPower Gateway does not provide a user interface in the Cloud Pak for Integration. Learn how to get started with [Configuration Management](https://www.ibm.com/docs/en/datapower-operator/1.6?topic=features-configuration-management).",
+                            "containerImage": "icr.io/cpopen/datapower-operator@sha256:31d88a94f10698aa0fe7bc8d031e95ed2d1b2dbf7eabdabaf555e7c6ce286fa3",
+                            "createdAt": "2023-12-05T09:40:04Z",
+                            "description": "A purpose-built security and integration platform for mobile, web, API, SOA, B2B and cloud workloads. This operator is also available as part of the IBM Cloud Pak for Integration (CP4I).",
+                            "kubectl.kubernetes.io/default-container": "datapower-operator",
+                            "olm.operatorGroup": "apiconnect-qa-522xt",
+                            "olm.operatorNamespace": "apiconnect-qa",
+                            "olm.skipRange": "\u003e=1.0.0 \u003c1.6.12",
+                            "olm.targetNamespaces": "apiconnect-qa",
+                            "operatorframework.io/properties": "{\"properties\":[{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerMustGatherManager\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerMustGather\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerRollout\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerService\",\"version\":\"v1beta3\"}},{\"type\":\"olm.package\",\"value\":{\"packageName\":\"datapower-operator\",\"version\":\"1.6.12\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerService\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerService\",\"version\":\"v1beta2\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerMonitor\",\"version\":\"v1beta2\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"datapower.ibm.com\",\"kind\":\"DataPowerServiceBinding\",\"version\":\"v1beta1\"}}]}",
+                            "operators.openshift.io/infrastructure-features": "[\"disconnected\"]",
+                            "operators.operatorframework.io/builder": "operator-sdk-v1.32.0",
+                            "operators.operatorframework.io/internal-objects": "[\n  \"datapowerrollouts.datapower.ibm.com\",\n  \"datapowerservicebindings.datapower.ibm.com\"\n]",
+                            "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3",
+                            "productChargedContainers": "",
+                            "productID": "64a541a8e6d44869ba790cbafb937f7a",
+                            "productMetric": "FREE",
+                            "productName": "IBM DataPower Operator",
+                            "productVersion": "1.6.12",
+                            "support": "IBM"
+                        }
+                    },
+                    "spec": {
+                        "volumes": [
+                            {
+                                "name": "operator-volume",
+                                "emptyDir": {}
+                            }
+                        ],
+                        "containers": [
+                            {
+                                "name": "datapower-operator",
+                                "image": "icr.io/cpopen/datapower-operator@sha256:31d88a94f10698aa0fe7bc8d031e95ed2d1b2dbf7eabdabaf555e7c6ce286fa3",
+                                "args": [
+                                    "--leader-elect",
+                                    "--zap-encoder=json",
+                                    "--zap-log-level=info",
+                                    "--zap-time-encoding=rfc3339nano"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "WATCH_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.annotations['olm.targetNamespaces']"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.name"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.namespace"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "IBM_ENTITLED_REGISTRY",
+                                        "value": "cp.icr.io/cp/datapower"
+                                    },
+                                    {
+                                        "name": "IBM_FREE_REGISTRY_DATAPOWER",
+                                        "value": "icr.io/cpopen/datapower"
+                                    },
+                                    {
+                                        "name": "IBM_FREE_REGISTRY_CPOPEN",
+                                        "value": "icr.io/cpopen"
+                                    },
+                                    {
+                                        "name": "OPERATOR_CONDITION_NAME",
+                                        "value": "datapower-operator.v1.6.12"
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "2",
+                                        "memory": "2Gi"
+                                    },
+                                    "requests": {
+                                        "cpu": "500m",
+                                        "memory": "512Mi"
+                                    }
+                                },
+                                "volumeMounts": [
+                                    {
+                                        "name": "operator-volume",
+                                        "mountPath": "/opt/ibm/datapower/operator"
+                                    }
+                                ],
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "imagePullPolicy": "Always",
+                                "securityContext": {
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    },
+                                    "privileged": false,
+                                    "readOnlyRootFilesystem": false,
+                                    "allowPrivilegeEscalation": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 10,
+                        "dnsPolicy": "ClusterFirst",
+                        "serviceAccountName": "datapower-operator",
+                        "serviceAccount": "datapower-operator",
+                        "securityContext": {
+                            "runAsNonRoot": true
+                        },
+                        "affinity": {
+                            "nodeAffinity": {
+                                "requiredDuringSchedulingIgnoredDuringExecution": {
+                                    "nodeSelectorTerms": [
+                                        {
+                                            "matchExpressions": [
+                                                {
+                                                    "key": "kubernetes.io/arch",
+                                                    "operator": "In",
+                                                    "values": [
+                                                        "amd64"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "schedulerName": "default-scheduler",
+                        "topologySpreadConstraints": [
+                            {
+                                "maxSkew": 1,
+                                "topologyKey": "topology.kubernetes.io/zone",
+                                "whenUnsatisfiable": "ScheduleAnyway",
+                                "labelSelector": {
+                                    "matchLabels": {
+                                        "app.kubernetes.io/instance": "datapower-operator",
+                                        "app.kubernetes.io/managed-by": "datapower-operator",
+                                        "app.kubernetes.io/name": "datapower-operator"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "strategy": {
+                    "type": "RollingUpdate",
+                    "rollingUpdate": {
+                        "maxUnavailable": "25%",
+                        "maxSurge": "25%"
+                    }
+                },
+                "revisionHistoryLimit": 1,
+                "progressDeadlineSeconds": 600
+            },
+            "status": {
+                "observedGeneration": 466,
+                "replicas": 1,
+                "updatedReplicas": 1,
+                "readyReplicas": 1,
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "type": "Progressing",
+                        "status": "True",
+                        "lastUpdateTime": "2024-03-27T00:29:42Z",
+                        "lastTransitionTime": "2024-03-27T00:29:33Z",
+                        "reason": "NewReplicaSetAvailable",
+                        "message": "ReplicaSet \"datapower-operator-5dcb9fc76\" has successfully progressed."
+                    },
+                    {
+                        "type": "Available",
+                        "status": "True",
+                        "lastUpdateTime": "2024-04-22T11:32:51Z",
+                        "lastTransitionTime": "2024-04-22T11:32:51Z",
+                        "reason": "MinimumReplicasAvailable",
+                        "message": "Deployment has minimum availability."
+                    }
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "name": "datapower-operator-conversion-webhook",
+                "namespace": "apiconnect-qa",
+                "uid": "79f30319-8c03-4040-95ab-a256779c72c5",
+                "resourceVersion": "3845670019",
+                "generation": 1,
+                "creationTimestamp": "2024-03-27T00:29:47Z",
+                "labels": {
+                    "app.kubernetes.io/instance": "datapower-operator-conversion-webhook",
+                    "app.kubernetes.io/managed-by": "datapower-operator",
+                    "app.kubernetes.io/name": "datapower-operator-conversion-webhook"
+                },
+                "annotations": {
+                    "datapower.ibm.com/managed-by": "apiconnect-qa",
+                    "deployment.kubernetes.io/revision": "1"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apiextensions.k8s.io/v1",
+                        "kind": "CustomResourceDefinition",
+                        "name": "datapowerservices.datapower.ibm.com",
+                        "uid": "354f7eab-c760-420f-b039-116cc1828c84",
+                        "controller": false,
+                        "blockOwnerDeletion": false
+                    }
+                ]
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "matchLabels": {
+                        "app.kubernetes.io/instance": "datapower-operator-conversion-webhook",
+                        "app.kubernetes.io/managed-by": "datapower-operator",
+                        "app.kubernetes.io/name": "datapower-operator-conversion-webhook"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app.kubernetes.io/instance": "datapower-operator-conversion-webhook",
+                            "app.kubernetes.io/managed-by": "datapower-operator",
+                            "app.kubernetes.io/name": "datapower-operator-conversion-webhook"
+                        },
+                        "annotations": {
+                            "productChargedContainers": "",
+                            "productID": "64a541a8e6d44869ba790cbafb937f7a",
+                            "productMetric": "FREE",
+                            "productName": "IBM DataPower Operator",
+                            "productVersion": "1.6.12"
+                        }
+                    },
+                    "spec": {
+                        "volumes": [
+                            {
+                                "name": "key-store",
+                                "secret": {
+                                    "secretName": "datapower-conversion-key-cert",
+                                    "defaultMode": 420
+                                }
+                            }
+                        ],
+                        "containers": [
+                            {
+                                "name": "webhook",
+                                "image": "icr.io/cpopen/datapower-operator-conversion-webhook@sha256:dbe966529031a6a13029546bc59b6dd882df0d1aa1dd7e0658c21053400d55d9",
+                                "args": [
+                                    "--zap-log-level=info",
+                                    "--zap-encoder=json",
+                                    "--zap-time-encoding=rfc3339nano"
+                                ],
+                                "ports": [
+                                    {
+                                        "name": "webhook",
+                                        "containerPort": 9090,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "250m",
+                                        "memory": "512Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "250m",
+                                        "memory": "512Mi"
+                                    }
+                                },
+                                "volumeMounts": [
+                                    {
+                                        "name": "key-store",
+                                        "mountPath": "/usr/local/share/key-store"
+                                    }
+                                ],
+                                "livenessProbe": {
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 9090,
+                                        "scheme": "HTTPS"
+                                    },
+                                    "initialDelaySeconds": 10,
+                                    "timeoutSeconds": 5,
+                                    "periodSeconds": 5,
+                                    "successThreshold": 1,
+                                    "failureThreshold": 3
+                                },
+                                "readinessProbe": {
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 9090,
+                                        "scheme": "HTTPS"
+                                    },
+                                    "initialDelaySeconds": 10,
+                                    "timeoutSeconds": 5,
+                                    "periodSeconds": 5,
+                                    "successThreshold": 1,
+                                    "failureThreshold": 3
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "imagePullPolicy": "IfNotPresent",
+                                "securityContext": {
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    },
+                                    "privileged": false,
+                                    "readOnlyRootFilesystem": false,
+                                    "allowPrivilegeEscalation": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "serviceAccountName": "dpop-conv-webhook",
+                        "serviceAccount": "dpop-conv-webhook",
+                        "securityContext": {},
+                        "affinity": {
+                            "nodeAffinity": {
+                                "requiredDuringSchedulingIgnoredDuringExecution": {
+                                    "nodeSelectorTerms": [
+                                        {
+                                            "matchExpressions": [
+                                                {
+                                                    "key": "kubernetes.io/arch",
+                                                    "operator": "In",
+                                                    "values": [
+                                                        "amd64"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "schedulerName": "default-scheduler"
+                    }
+                },
+                "strategy": {
+                    "type": "RollingUpdate",
+                    "rollingUpdate": {
+                        "maxUnavailable": "25%",
+                        "maxSurge": "25%"
+                    }
+                },
+                "revisionHistoryLimit": 10,
+                "progressDeadlineSeconds": 600
+            },
+            "status": {
+                "observedGeneration": 1,
+                "replicas": 1,
+                "updatedReplicas": 1,
+                "readyReplicas": 1,
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "type": "Progressing",
+                        "status": "True",
+                        "lastUpdateTime": "2024-03-27T00:31:30Z",
+                        "lastTransitionTime": "2024-03-27T00:29:47Z",
+                        "reason": "NewReplicaSetAvailable",
+                        "message": "ReplicaSet \"datapower-operator-conversion-webhook-585d95cf87\" has successfully progressed."
+                    },
+                    {
+                        "type": "Available",
+                        "status": "True",
+                        "lastUpdateTime": "2024-04-20T17:47:31Z",
+                        "lastTransitionTime": "2024-04-20T17:47:31Z",
+                        "reason": "MinimumReplicasAvailable",
+                        "message": "Deployment has minimum availability."
+                    }
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "name": "ibm-apiconnect",
+                "namespace": "apiconnect-qa",
+                "uid": "f7590828-7ded-405c-8293-a0b3882dcabf",
+                "resourceVersion": "3573704531",
+                "generation": 10,
+                "creationTimestamp": "2024-03-22T23:47:30Z",
+                "labels": {
+                    "olm.deployment-spec-hash": "c8d747f5",
+                    "olm.owner": "ibm-apiconnect.v3.5.0",
+                    "olm.owner.kind": "ClusterServiceVersion",
+                    "olm.owner.namespace": "apiconnect-qa",
+                    "operators.coreos.com/ibm-apiconnect.apiconnect-qa": ""
+                },
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "operators.coreos.com/v1alpha1",
+                        "kind": "ClusterServiceVersion",
+                        "name": "ibm-apiconnect.v3.5.0",
+                        "uid": "3c3ffe82-d7d5-4551-ba41-0c7a6f358500",
+                        "controller": false,
+                        "blockOwnerDeletion": false
+                    }
+                ]
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "matchLabels": {
+                        "app.kubernetes.io/component": "apiconnect-operator",
+                        "app.kubernetes.io/name": "ibm-apiconnect",
+                        "name": "ibm-apiconnect"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app.kubernetes.io/component": "apiconnect-operator",
+                            "app.kubernetes.io/instance": "ibm-apiconnect",
+                            "app.kubernetes.io/managed-by": "ibm-apiconnect",
+                            "app.kubernetes.io/name": "ibm-apiconnect",
+                            "name": "ibm-apiconnect"
+                        },
+                        "annotations": {
+                            "alm-examples": "[\n  {\n    \"apiVersion\": \"analytics.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"AnalyticsBackup\",\n    \"metadata\": {\n      \"generateName\": \"a7s-bup-\",\n      \"name\": \"a7s-bup-01\"\n    },\n    \"spec\": {\n      \"comment\": \"test comment\",\n      \"crType\": \"create\",\n      \"enableIgnoreUnavailable\": false,\n      \"indices\": [\n        \"all\"\n      ]\n    }\n  },\n  {\n    \"apiVersion\": \"analytics.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"AnalyticsCluster\",\n    \"metadata\": {\n      \"annotations\": {\n        \"apiconnect-operator/cp4i\": \"false\"\n      },\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"analytics\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"analytics\"\n      },\n      \"name\": \"analytics\"\n    },\n    \"spec\": {\n      \"certManagerIssuer\": {\n        \"kind\": \"Issuer\",\n        \"name\": \"selfsigning-issuer\"\n      },\n      \"ingestion\": {\n        \"clientAuthEnabled\": true,\n        \"clientSubjectDN\": \"CN=analytics-ingestion-client,O=cert-manager\",\n        \"configReloadAutomatic\": true,\n        \"enabled\": true,\n        \"endpoint\": {\n          \"annotations\": {\n            \"cert-manager.io/issuer\": \"ingress-issuer\"\n          },\n          \"hosts\": [\n            {\n              \"name\": \"ai.apps.apiconnect.example.com\",\n              \"secretName\": \"analytics-ai-endpoint-secret\"\n            }\n          ]\n        }\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"\",\n        \"use\": \"nonproduction\"\n      },\n      \"microServiceSecurity\": \"certManager\",\n      \"mtlsValidateClient\": true,\n      \"profile\": \"n1xc2.m16\",\n      \"storage\": {\n        \"clientAuthEnabled\": true,\n        \"enabled\": true,\n        \"shared\": {\n          \"volumeClaimTemplate\": {\n            \"storageClassName\": \"block-storage\",\n            \"volumeSize\": \"200Gi\"\n          }\n        },\n        \"type\": \"shared\"\n      },\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"analytics.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"AnalyticsRestore\",\n    \"metadata\": {\n      \"generateName\": \"a7s-restore-\",\n      \"name\": \"a7s-restore-01\"\n    },\n    \"spec\": {\n      \"backupID\": \"mybackup\",\n      \"enableIgnoreUnavailable\": false,\n      \"enableOverride\": false,\n      \"indices\": [\n        \"all\"\n      ]\n    }\n  },\n  {\n    \"apiVersion\": \"eventendpointmanager.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"EventEndpointManager\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"eventendpointmanager-minimum\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"eventendpointmanager-minimum\"\n      },\n      \"name\": \"eventendpointmanager-minimum\"\n    },\n    \"spec\": {\n      \"endpointTypes\": [\n        \"Events\"\n      ],\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"nonproduction\"\n      },\n      \"profile\": \"n1xc10.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"eventendpointmanager.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"EventEndpointManager\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"eventendpointmanager-production\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"eventendpointmanager-production\"\n      },\n      \"name\": \"eventendpointmanager-production\"\n    },\n    \"spec\": {\n      \"endpointTypes\": [\n        \"Events\"\n      ],\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"profile\": \"n3xc14.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"eventendpointmanager.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"EventEndpointManager\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"eventendpointmanager-production-without-egw\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"eventendpointmanager-production-without-egw\"\n      },\n      \"name\": \"eventendpointmanager-production-without-egw\"\n    },\n    \"spec\": {\n      \"disabledServices\": [\n        \"event-gateway\"\n      ],\n      \"endpointTypes\": [\n        \"Events\"\n      ],\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"profile\": \"n3xc14.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"eventgateway.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"EventGatewayCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"eventgatewaycluster-sample\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"eventgatewaycluster-production\"\n      },\n      \"name\": \"eventgatewaycluster-sample\"\n    },\n    \"spec\": {\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"nonproduction\"\n      },\n      \"managementClientSubjectDN\": \"CN=event-gateway-management-client\",\n      \"profile\": \"n1xc10.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"gateway.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"GatewayCluster\",\n    \"metadata\": {\n      \"annotations\": {\n        \"apiconnect-operator/cp4i\": \"false\"\n      },\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"gateway\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"gateway\"\n      },\n      \"name\": \"gateway\"\n    },\n    \"spec\": {\n      \"adminUser\": {\n        \"secretName\": \"admin-secret\"\n      },\n      \"apicGatewayPeeringTLS\": {\n        \"secretName\": \"gateway-peering\"\n      },\n      \"apicGatewayServiceTLS\": {\n        \"secretName\": \"gateway-service\"\n      },\n      \"apicGatewayServiceV5CompatibilityMode\": false,\n      \"datapowerLogLevel\": 4,\n      \"gatewayEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"gw.apps.apiconnect.example.com\",\n            \"secretName\": \"gateway-endpoint-secret\"\n          }\n        ]\n      },\n      \"gatewayManagerEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"gwmanager.apps.apiconnect.example.com\",\n            \"secretName\": \"gateway-manager-endpoint-secret\"\n          }\n        ]\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"\",\n        \"use\": \"nonproduction\"\n      },\n      \"mgmtPlatformEndpointCASecret\": {\n        \"secretName\": \"ingress-ca\"\n      },\n      \"mtlsValidateClient\": false,\n      \"profile\": \"n1xc4.m8\",\n      \"syslogConfig\": {\n        \"enabled\": false,\n        \"remoteHost\": \"gateway.example.com\",\n        \"remotePort\": 200,\n        \"secretName\": \"mySecretName\"\n      },\n      \"tokenManagementService\": {\n        \"enabled\": true,\n        \"storage\": {\n          \"storageClassName\": \"block-storage\",\n          \"volumeSize\": \"30Gi\"\n        }\n      },\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"management.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"ManagementBackup\",\n    \"metadata\": {\n      \"generateName\": \"management-\",\n      \"name\": \"management-01\"\n    },\n    \"spec\": {\n      \"clusterName\": \"management\",\n      \"crType\": \"create\",\n      \"type\": \"full\"\n    }\n  },\n  {\n    \"apiVersion\": \"management.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"ManagementCluster\",\n    \"metadata\": {\n      \"annotations\": {\n        \"apiconnect-operator/cp4i\": \"false\"\n      },\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"management\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"management\"\n      },\n      \"name\": \"management\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"client\": {\n          \"secretName\": \"analytics-client-client\"\n        },\n        \"ingestion\": {\n          \"secretName\": \"analytics-ingestion-client\"\n        }\n      },\n      \"apiManagerEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"apim.apps.apiconnect.example.com\",\n            \"secretName\": \"management-apim-endpoint-secret\"\n          }\n        ]\n      },\n      \"certManagerIssuer\": {\n        \"kind\": \"Issuer\",\n        \"name\": \"selfsigning-issuer\"\n      },\n      \"cloudManagerEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"cm.apps.apiconnect.example.com\",\n            \"secretName\": \"management-cm-endpoint-secret\"\n          }\n        ]\n      },\n      \"consumerAPIEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"consumer.apps.apiconnect.example.com\",\n            \"secretName\": \"management-consumer-endpoint-secret\"\n          }\n        ]\n      },\n      \"databaseVolumeClaimTemplate\": {\n        \"storageClassName\": \"block-storage\"\n      },\n      \"gateway\": {\n        \"client\": {\n          \"secretName\": \"gateway-client-client\"\n        }\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"\",\n        \"use\": \"nonproduction\"\n      },\n      \"microServiceSecurity\": \"certManager\",\n      \"platformAPIEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"api.apps.apiconnect.example.com\",\n            \"secretName\": \"management-api-endpoint-secret\"\n          }\n        ]\n      },\n      \"portal\": {\n        \"admin\": {\n          \"secretName\": \"portal-admin-client\"\n        }\n      },\n      \"profile\": \"n1xc4.m16\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"management.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"ManagementRestore\",\n    \"metadata\": {\n      \"generateName\": \"mgmt-restore-\",\n      \"name\": \"mgmt-restore-01\"\n    },\n    \"spec\": {\n      \"backupName\": \"mgmt-backup-\"\n    }\n  },\n  {\n    \"apiVersion\": \"management.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"ManagementSecretRotation\",\n    \"metadata\": {\n      \"name\": \"rotate-secret\"\n    },\n    \"spec\": {\n      \"managementCluster\": \"management\",\n      \"rotateCertificates\": {\n        \"certificates\": [\n          \"management-ca\"\n        ]\n      },\n      \"rotateClientIDandSecret\": {\n        \"secrets\": [\n          \"management-atm-cred\",\n          \"management-ccli-cred\",\n          \"management-cli-cred\",\n          \"management-cui-cred\",\n          \"management-dsgr-cred\",\n          \"management-juhu-cred\",\n          \"management-ui-cred\"\n        ]\n      },\n      \"rotateEncryptionSecret\": {\n        \"rotate\": true\n      }\n    }\n  },\n  {\n    \"apiVersion\": \"portal.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"PortalBackup\",\n    \"metadata\": {\n      \"generateName\": \"portal-bup-\",\n      \"name\": \"portal-bup-01\"\n    },\n    \"spec\": {\n      \"comment\": \"test comment\",\n      \"crType\": \"create\",\n      \"type\": \"all\"\n    }\n  },\n  {\n    \"apiVersion\": \"portal.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"PortalCluster\",\n    \"metadata\": {\n      \"annotations\": {\n        \"apiconnect-operator/cp4i\": \"false\"\n      },\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"portal\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"portal\"\n      },\n      \"name\": \"portal\"\n    },\n    \"spec\": {\n      \"adminClientSubjectDN\": \"CN=portal-admin-client,O=cert-manager\",\n      \"adminVolumeClaimTemplate\": {\n        \"storageClassName\": \"block-storage\",\n        \"volumeSize\": \"20Gi\"\n      },\n      \"backupVolumeClaimTemplate\": {\n        \"storageClassName\": \"block-storage\",\n        \"volumeSize\": \"300Gi\"\n      },\n      \"certManagerIssuer\": {\n        \"kind\": \"Issuer\",\n        \"name\": \"selfsigning-issuer\"\n      },\n      \"certVolumeClaimTemplate\": {\n        \"storageClassName\": \"block-storage\",\n        \"volumeSize\": \"4Gi\"\n      },\n      \"databaseLogsVolumeClaimTemplate\": {\n        \"storageClassName\": \"block-storage\",\n        \"volumeSize\": \"12Gi\"\n      },\n      \"databaseVolumeClaimTemplate\": {\n        \"storageClassName\": \"block-storage\",\n        \"volumeSize\": \"300Gi\"\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"\",\n        \"use\": \"nonproduction\"\n      },\n      \"mgmtConsumerEndpointCASecret\": {\n        \"secretName\": \"ingress-ca\"\n      },\n      \"mgmtPlatformEndpointCASecret\": {\n        \"secretName\": \"ingress-ca\"\n      },\n      \"microServiceSecurity\": \"certManager\",\n      \"mtlsValidateClient\": true,\n      \"portalAdminEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"ptladmin1.apps.apiconnect.example.com\",\n            \"secretName\": \"portal-admin-endpoint-secret\"\n          }\n        ]\n      },\n      \"portalUIEndpoint\": {\n        \"annotations\": {\n          \"cert-manager.io/issuer\": \"ingress-issuer\"\n        },\n        \"hosts\": [\n          {\n            \"name\": \"ptl1.apps.apiconnect.example.com\",\n            \"secretName\": \"portal-web-endpoint-secret\"\n          }\n        ]\n      },\n      \"profile\": \"n1xc2.m8\",\n      \"version\": \"10.0.5.5\",\n      \"webVolumeClaimTemplate\": {\n        \"storageClassName\": \"block-storage\",\n        \"volumeSize\": \"200Gi\"\n      }\n    }\n  },\n  {\n    \"apiVersion\": \"portal.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"PortalRestore\",\n    \"metadata\": {\n      \"generateName\": \"portal-restore-\",\n      \"name\": \"portal-restore-01\"\n    },\n    \"spec\": {\n      \"dryRun\": true,\n      \"timestamp\": \"now\",\n      \"type\": \"all\"\n    }\n  },\n  {\n    \"apiVersion\": \"portal.apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"PortalSecretRotation\",\n    \"metadata\": {\n      \"name\": \"rotate-secret\"\n    },\n    \"spec\": {\n      \"portalCluster\": \"portal\",\n      \"rotateCertificates\": {\n        \"certificates\": [\n          \"portal-ca\"\n        ]\n      },\n      \"rotateEncryptionSecret\": {\n        \"rotate\": true\n      }\n    }\n  },\n  {\n    \"apiVersion\": \"apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"APIConnectCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"apiconnect\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"apiconnect-small\"\n      },\n      \"name\": \"small\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"mtlsValidateClient\": true\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"portal\": {\n        \"mtlsValidateClient\": true\n      },\n      \"profile\": \"n1xc7.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"APIConnectCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"apiconnect\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"apiconnect-medium\"\n      },\n      \"name\": \"medium\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"mtlsValidateClient\": true\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"portal\": {\n        \"mtlsValidateClient\": true\n      },\n      \"profile\": \"n1xc16.m72\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"APIConnectCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"apiconnect\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"apiconnect-large\"\n      },\n      \"name\": \"large\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"mtlsValidateClient\": true\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"portal\": {\n        \"mtlsValidateClient\": true\n      },\n      \"profile\": \"n3xc16.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"APIConnectCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"apiconnect\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"apiconnect-medium-remote-gateways\"\n      },\n      \"name\": \"medium-remote-gateways\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"mtlsValidateClient\": true\n      },\n      \"disabledServices\": [\n        \"gateway\"\n      ],\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"portal\": {\n        \"mtlsValidateClient\": true\n      },\n      \"profile\": \"n1xc12.m64\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"APIConnectCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"apiconnect\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"apiconnect-large-remote-gateways\"\n      },\n      \"name\": \"large-remote-gateways\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"mtlsValidateClient\": true\n      },\n      \"disabledServices\": [\n        \"gateway\"\n      ],\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"portal\": {\n        \"mtlsValidateClient\": true\n      },\n      \"profile\": \"n3xc12.m40\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"APIConnectCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"apiconnect\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"apiconnect-production\"\n      },\n      \"name\": \"apis-production-min-gw\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"mtlsValidateClient\": true\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"portal\": {\n        \"mtlsValidateClient\": true\n      },\n      \"profile\": \"n3xc11.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  },\n  {\n    \"apiVersion\": \"apiconnect.ibm.com/v1beta1\",\n    \"kind\": \"APIConnectCluster\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"apiconnect\",\n        \"app.kubernetes.io/managed-by\": \"ibm-apiconnect\",\n        \"app.kubernetes.io/name\": \"apiconnect-production\"\n      },\n      \"name\": \"apis-production\"\n    },\n    \"spec\": {\n      \"analytics\": {\n        \"mtlsValidateClient\": true\n      },\n      \"license\": {\n        \"accept\": false,\n        \"license\": \"L-VQYA-YNM22H\",\n        \"metric\": \"VIRTUAL_PROCESSOR_CORE\",\n        \"use\": \"production\"\n      },\n      \"portal\": {\n        \"mtlsValidateClient\": true\n      },\n      \"profile\": \"n3xc14.m48\",\n      \"version\": \"10.0.5.5\"\n    }\n  }\n]",
+                            "alm-examples-metadata": "{\n    \"small\": {\n        \"description\": \"Best suited for light, non-critical workloads such as small team development and testing. Deploys 1 replica of the Management, Developer Portal, Analytics, and Gateway components in a minimal footprint.\",\n        \"name\": \"Small - Single Replica\",\n        \"resources\": {\"cpu\": \"18.15 max\", \"memory\": \"80.52 GB max\", \"storage\": \"521 GB\", \"vpc\": \"7\"}\n    },\n    \"medium\": {\n        \"description\": \"Ideal for medium workloads such as organizational development, testing, and production when in alignment with business availability requirements. Deploys 1 replica of the Management, Developer Portal, Analytics, and Gateway components.\",\n        \"name\": \"Medium - Single Replica\",\n        \"resources\": {\"cpu\": \"30.15 max\", \"memory\": \"101.32 GB max\", \"storage\": \"521 GB\", \"vpc\": \"16\"}\n    },\n    \"large\": {\n        \"description\": \"Ideal for heavy workloads when business requires redundancy for greater availability \u0026 capacity. Deploys 3 replicas of the Management, Developer Portal, Analytics, and Gateway components.\",\n        \"name\": \"Large - 3 Replicas\",\n        \"resources\": {\"cpu\": \"93.05 max\", \"memory\": \"243.55 GB max\", \"storage\": \"1773 GB\", \"vpc\": \"48\"}\n    },\n    \"medium-remote-gateways\": {\n        \"description\": \"Ideal for medium workloads such as dev, test \u0026 production when aligned with business availability requirements. Requires independently deployed Gateways. Deploys 1 replica of Management, Developer Portal and Analytics components.\",\n        \"name\": \"Medium - Single Replica - Remote Gateways\",\n        \"resources\": {\"cpu\": \"26.15 max\", \"memory\": \"92.78 GB max\", \"storage\": \"521 GB\", \"vpc\": \"12\"}\n    },\n    \"large-remote-gateways\": {\n        \"description\": \"Ideal for heavy workloads when business requires redundancy for greater availability \u0026 capacity. Must be configured to use independently deployed Gateways. Deploys 3 replicas of the Management, Developer Portal, and Analytics components.\",\n        \"name\": \"Large - 3 Replicas - Remote Gateways\",\n        \"resources\": {\"cpu\": \"81.05 max\", \"memory\": \"218.81 GB max\", \"storage\": \"1773 GB\", \"vpc\": \"36\"}\n    },\n    \"apis-production-min-gw\": {\n        \"description\": \"Deprecated for use of existing deployments v2022.2.1 or earlier. For new instance deployments use non-deprecated options.\",\n        \"name\": \"Deprecated - Three Node - Minimum Gateway\",\n        \"resources\": {\"cpu\": \"78.05 max\", \"memory\": \"243.55 GB max\", \"storage\": \"1773 GB\", \"vpc\": \"33\"}\n    },\n    \"apis-production\": {\n        \"description\": \"Deprecated for use of existing deployments v2022.2.1 or earlier. For new instance deployments use non-deprecated options.\",\n        \"name\": \"Deprecated - Three Node Production\",\n        \"resources\": {\"cpu\": \"87.05 max\", \"memory\": \"243.55 GB max\", \"storage\": \"1773 GB\", \"vpc\": \"42\"}\n    },\n    \"eventendpointmanager-minimum\": {\n        \"description\": \"Suitable for light, non-critical workloads such as basic development and testing. Includes one node of each type (management, Event Gateway, and portal).\",\n        \"name\": \"Event Endpoints - One Node - Minimum\",\n        \"resources\": {\"cpu\": \"3.6\",\"memory\":\"10 GB\",\"storage\":\"331 GB\",\"vpc\":\"8.35\"}\n    },\n    \"eventendpointmanager-production\": {\n        \"description\": \"Suitable for production workloads. In addition to an Event Gateway, includes multiple nodes of management and portal to improve capacity and availability.\",\n        \"name\": \"Event Endpoints - Three Node - Production\",\n        \"resources\": {\"cpu\": \"13.1\", \"memory\": \"25.6 GB\", \"storage\": \"1191 GB\", \"vpc\": \"46.1\"}\n    },\n    \"eventendpointmanager-production-without-egw\": {\n        \"description\": \"Suitable for production workloads. Includes management and portal nodes, but requires a standalone Event Gateway located adjacent to the Kafka cluster for increased efficiency.\",\n        \"name\": \"Event Endpoints - Three Node - Production (no Event Gateway Service)\",\n        \"resources\": {\"cpu\": \"11.4\", \"memory\": \"23.9 GB\", \"storage\": \"1191 GB\", \"vpc\": \"44.6\"}\n    }\n}\n",
+                            "capabilities": "Seamless Upgrades",
+                            "categories": "Developer Tools,Security,Integration \u0026 Delivery",
+                            "certified": "false",
+                            "cloudpakId": "c8b82d189e7545f0892db9ef2731b90d",
+                            "cloudpakName": "IBM Cloud Pak for Integration",
+                            "containerImage": "icr.io/cpopen/ibm-apiconnect-operator@sha256:b2983bb1518195a80cce4b43d0322cacd0f1f4bb77d31b0e5d051bc37587c7ff",
+                            "createdAt": "2023-10-19T14:47:46Z",
+                            "description": "IBM® API Connect is a scalable API platform that lets you create, securely expose, manage and monetize APIs across clouds.",
+                            "kubectl.kubernetes.io/default-container": "ibm-apiconnect",
+                            "olm.operatorGroup": "apiconnect-qa-522xt",
+                            "olm.operatorNamespace": "apiconnect-qa",
+                            "olm.skipRange": "\u003e=1.0.0 \u003c3.5.0",
+                            "olm.targetNamespaces": "apiconnect-qa",
+                            "olmcahash": "f51429a28114a46fe707fd459fa68fa9f3c03a127d4d4ecbca0e9afe409c8f6b",
+                            "operatorframework.io/properties": "{\"properties\":[{\"type\":\"olm.gvk\",\"value\":{\"group\":\"crunchydata.com\",\"kind\":\"Pgtask\",\"version\":\"v1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"nats.apiconnect.ibm.com\",\"kind\":\"NatsCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"gateway.apiconnect.ibm.com\",\"kind\":\"GatewayCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"management.apiconnect.ibm.com\",\"kind\":\"ManagementDBUpgrade\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"management.apiconnect.ibm.com\",\"kind\":\"ManagementRestore\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"management.apiconnect.ibm.com\",\"kind\":\"ManagementSecretRotation\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"nats.apiconnect.ibm.com\",\"kind\":\"NatsServiceRole\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"natsstreaming.apiconnect.ibm.com\",\"kind\":\"NatsStreamingCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"analytics.apiconnect.ibm.com\",\"kind\":\"AnalyticsCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"eventendpointmanager.apiconnect.ibm.com\",\"kind\":\"EventEndpointManager\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"management.apiconnect.ibm.com\",\"kind\":\"ManagementCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"portal.apiconnect.ibm.com\",\"kind\":\"PortalCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"crunchydata.com\",\"kind\":\"Pgcluster\",\"version\":\"v1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"eventgateway.apiconnect.ibm.com\",\"kind\":\"EventGatewayCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"portal.apiconnect.ibm.com\",\"kind\":\"PortalRestore\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"portal.apiconnect.ibm.com\",\"kind\":\"PortalBackup\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"analytics.apiconnect.ibm.com\",\"kind\":\"AnalyticsRestore\",\"version\":\"v1beta1\"}},{\"type\":\"olm.package\",\"value\":{\"packageName\":\"ibm-apiconnect\",\"version\":\"3.5.0\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"portal.apiconnect.ibm.com\",\"kind\":\"PortalSecretRotation\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"management.apiconnect.ibm.com\",\"kind\":\"ManagementBackup\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"analytics.apiconnect.ibm.com\",\"kind\":\"AnalyticsBackup\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"apiconnect.ibm.com\",\"kind\":\"APIConnectCluster\",\"version\":\"v1beta1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"crunchydata.com\",\"kind\":\"Pgpolicy\",\"version\":\"v1\"}},{\"type\":\"olm.gvk\",\"value\":{\"group\":\"crunchydata.com\",\"kind\":\"Pgreplica\",\"version\":\"v1\"}},{\"type\":\"olm.package.required\",\"value\":{\"packageName\":\"datapower-operator\",\"versionRange\":\"\\u003e=1.6.0 \\u003c1.7.0\"}},{\"type\":\"olm.gvk.required\",\"value\":{\"group\":\"datapower.ibm.com\",\"version\":\"v1beta3\",\"kind\":\"DataPowerService\"}},{\"type\":\"olm.gvk.required\",\"value\":{\"group\":\"datapower.ibm.com\",\"version\":\"v1beta2\",\"kind\":\"DataPowerMonitor\"}}]}",
+                            "operators.operatorframework.io/builder": "operator-sdk-v1.31.0",
+                            "operators.operatorframework.io/internal-objects": "[\"pgclusters.crunchydata.com\",\"pgpolicies.crunchydata.com\",\"pgreplicas.crunchydata.com\",\"pgtasks.crunchydata.com\",\"natsclusters.nats.apiconnect.ibm.com\",\"natsserviceroles.nats.apiconnect.ibm.com\",\"natsstreamingclusters.natsstreaming.apiconnect.ibm.com\"]",
+                            "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v2",
+                            "productChargedContainers": "",
+                            "productID": "2c717d4ecc924aa5ac345015b55492eb",
+                            "productMetric": "FREE",
+                            "productName": "IBM API Connect Enterprise",
+                            "productVersion": "10.0.5.5-6227"
+                        }
+                    },
+                    "spec": {
+                        "volumes": [
+                            {
+                                "name": "apiservice-cert",
+                                "secret": {
+                                    "secretName": "ibm-apiconnect-service-cert",
+                                    "items": [
+                                        {
+                                            "key": "tls.crt",
+                                            "path": "apiserver.crt"
+                                        },
+                                        {
+                                            "key": "tls.key",
+                                            "path": "apiserver.key"
+                                        }
+                                    ],
+                                    "defaultMode": 420
+                                }
+                            },
+                            {
+                                "name": "webhook-cert",
+                                "secret": {
+                                    "secretName": "ibm-apiconnect-service-cert",
+                                    "items": [
+                                        {
+                                            "key": "tls.crt",
+                                            "path": "tls.crt"
+                                        },
+                                        {
+                                            "key": "tls.key",
+                                            "path": "tls.key"
+                                        }
+                                    ],
+                                    "defaultMode": 420
+                                }
+                            }
+                        ],
+                        "initContainers": [
+                            {
+                                "name": "webhook-delete",
+                                "image": "icr.io/cpopen/ibm-apiconnect-webhook-delete@sha256:ae3bd91410f0cf9128787b670183a73c3814021e4e994a44a3d73d38ba775927",
+                                "command": [
+                                    "/webhook-delete"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "WATCH_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.namespace"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.namespace"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.name"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_UID",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.uid"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "1",
+                                        "memory": "1Gi"
+                                    },
+                                    "requests": {
+                                        "cpu": "75m",
+                                        "memory": "128Mi"
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "imagePullPolicy": "IfNotPresent",
+                                "securityContext": {
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    },
+                                    "privileged": false,
+                                    "runAsNonRoot": true,
+                                    "readOnlyRootFilesystem": false,
+                                    "allowPrivilegeEscalation": false
+                                }
+                            }
+                        ],
+                        "containers": [
+                            {
+                                "name": "ibm-apiconnect",
+                                "image": "icr.io/cpopen/ibm-apiconnect-operator@sha256:b2983bb1518195a80cce4b43d0322cacd0f1f4bb77d31b0e5d051bc37587c7ff",
+                                "args": [
+                                    "--enable-leader-election"
+                                ],
+                                "ports": [
+                                    {
+                                        "name": "webhook-server",
+                                        "containerPort": 9443,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "env": [
+                                    {
+                                        "name": "DEFAULT_IMAGE_PULL_SECRET",
+                                        "value": "ibm-entitlement-key"
+                                    },
+                                    {
+                                        "name": "DEFAULT_IMAGE_REGISTRY",
+                                        "value": "cp.icr.io/cp/apic"
+                                    },
+                                    {
+                                        "name": "WATCH_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.annotations['olm.targetNamespaces']"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.namespace"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.name"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_UID",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.uid"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "APPLIANCE",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "OPERATOR_CONDITION_NAME",
+                                        "value": "ibm-apiconnect.v3.5.0"
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "1",
+                                        "memory": "1Gi"
+                                    },
+                                    "requests": {
+                                        "cpu": "75m",
+                                        "memory": "128Mi"
+                                    }
+                                },
+                                "volumeMounts": [
+                                    {
+                                        "name": "apiservice-cert",
+                                        "mountPath": "/apiserver.local.config/certificates"
+                                    },
+                                    {
+                                        "name": "webhook-cert",
+                                        "mountPath": "/tmp/k8s-webhook-server/serving-certs"
+                                    }
+                                ],
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "imagePullPolicy": "IfNotPresent",
+                                "securityContext": {
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    },
+                                    "privileged": false,
+                                    "runAsNonRoot": true,
+                                    "readOnlyRootFilesystem": false,
+                                    "allowPrivilegeEscalation": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 10,
+                        "dnsPolicy": "ClusterFirst",
+                        "serviceAccountName": "ibm-apiconnect",
+                        "serviceAccount": "ibm-apiconnect",
+                        "securityContext": {
+                            "runAsNonRoot": true
+                        },
+                        "imagePullSecrets": [
+                            {
+                                "name": "apic-registry-secret"
+                            }
+                        ],
+                        "affinity": {
+                            "nodeAffinity": {
+                                "requiredDuringSchedulingIgnoredDuringExecution": {
+                                    "nodeSelectorTerms": [
+                                        {
+                                            "matchExpressions": [
+                                                {
+                                                    "key": "kubernetes.io/arch",
+                                                    "operator": "In",
+                                                    "values": [
+                                                        "amd64",
+                                                        "s390x"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "schedulerName": "default-scheduler"
+                    }
+                },
+                "strategy": {
+                    "type": "Recreate"
+                },
+                "revisionHistoryLimit": 1,
+                "progressDeadlineSeconds": 600
+            },
+            "status": {
+                "observedGeneration": 10,
+                "replicas": 1,
+                "updatedReplicas": 1,
+                "readyReplicas": 1,
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "type": "Progressing",
+                        "status": "True",
+                        "lastUpdateTime": "2024-03-22T23:48:14Z",
+                        "lastTransitionTime": "2024-03-22T23:47:31Z",
+                        "reason": "NewReplicaSetAvailable",
+                        "message": "ReplicaSet \"ibm-apiconnect-67f66c7548\" has successfully progressed."
+                    },
+                    {
+                        "type": "Available",
+                        "status": "True",
+                        "lastUpdateTime": "2024-03-27T16:21:29Z",
+                        "lastTransitionTime": "2024-03-27T16:21:29Z",
+                        "reason": "MinimumReplicasAvailable",
+                        "message": "Deployment has minimum availability."
+                    }
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "name": "ibm-common-service-operator",
+                "namespace": "apiconnect-qa",
+                "uid": "661a1878-b3e5-46ab-acc7-4dcf5f5a9494",
+                "resourceVersion": "3845510465",
+                "generation": 21,
+                "creationTimestamp": "2024-03-21T16:25:36Z",
+                "labels": {
+                    "app.kubernetes.io/instance": "ibm-common-service-operator",
+                    "app.kubernetes.io/managed-by": "ibm-common-service-operator",
+                    "app.kubernetes.io/name": "ibm-common-service-operator",
+                    "olm.deployment-spec-hash": "799dc974",
+                    "olm.owner": "ibm-common-service-operator.v3.23.13",
+                    "olm.owner.kind": "ClusterServiceVersion",
+                    "olm.owner.namespace": "apiconnect-qa",
+                    "operators.coreos.com/ibm-common-service-operator.apiconnect-qa": ""
+                },
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "2"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "operators.coreos.com/v1alpha1",
+                        "kind": "ClusterServiceVersion",
+                        "name": "ibm-common-service-operator.v3.23.13",
+                        "uid": "cb16ca72-86b5-4ea3-b50c-aee903ae3adf",
+                        "controller": false,
+                        "blockOwnerDeletion": false
+                    }
+                ]
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "matchLabels": {
+                        "name": "ibm-common-service-operator"
+                    }
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app.kubernetes.io/instance": "ibm-common-service-operator",
+                            "app.kubernetes.io/managed-by": "ibm-common-service-operator",
+                            "app.kubernetes.io/name": "ibm-common-service-operator",
+                            "name": "ibm-common-service-operator"
+                        },
+                        "annotations": {
+                            "alm-examples": "[\n  {\n    \"apiVersion\": \"operator.ibm.com/v3\",\n    \"kind\": \"CommonService\",\n    \"metadata\": {\n      \"labels\": {\n        \"app.kubernetes.io/instance\": \"ibm-common-service-operator\",\n        \"app.kubernetes.io/managed-by\": \"ibm-common-service-operator\",\n        \"app.kubernetes.io/name\": \"ibm-common-service-operator\"\n      },\n      \"name\": \"example-commonservice\"\n    },\n    \"spec\": {\n      \"size\": \"starterset\"\n    }\n  }\n]",
+                            "capabilities": "Seamless Upgrades",
+                            "containerImage": "icr.io/cpopen/common-service-operator@sha256:e98ac1a0cc88d6b20c33428c585fe561a68b070f1c33fb4083e0b0feb57e6f6c",
+                            "createdAt": "2024-03-08T17:02:21Z",
+                            "description": "The IBM Common Service Operator is used to deploy IBM Common Services",
+                            "nss.operator.ibm.com/managed-operators": "cloud-native-postgresql,ibm-bts-operator",
+                            "olm.operatorGroup": "apiconnect-qa-522xt",
+                            "olm.operatorNamespace": "apiconnect-qa",
+                            "olm.skipRange": "\u003e=3.3.0 \u003c3.23.13",
+                            "olm.targetNamespaces": "apiconnect-qa",
+                            "operatorChannel": "v3.23",
+                            "operatorVersion": "3.23.13",
+                            "operatorframework.io/properties": "{\"properties\":[{\"type\":\"olm.gvk\",\"value\":{\"group\":\"operator.ibm.com\",\"kind\":\"CommonService\",\"version\":\"v3\"}},{\"type\":\"olm.package\",\"value\":{\"packageName\":\"ibm-common-service-operator\",\"version\":\"3.23.13\"}}]}",
+                            "operators.openshift.io/infrastructure-features": "[\"disconnected\"]",
+                            "operators.operatorframework.io/builder": "operator-sdk-v1.29.0",
+                            "operators.operatorframework.io/project_layout": "go.kubebuilder.io/v3",
+                            "productID": "068a62892a1e4db39641342e592daa25",
+                            "productMetric": "FREE",
+                            "productName": "IBM Cloud Platform Common Services",
+                            "repository": "https://github.com/IBM/ibm-common-service-operator",
+                            "support": "IBM"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "ibm-common-service-operator",
+                                "image": "icr.io/cpopen/common-service-operator@sha256:e98ac1a0cc88d6b20c33428c585fe561a68b070f1c33fb4083e0b0feb57e6f6c",
+                                "command": [
+                                    "/manager"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "OPERATOR_NAME",
+                                        "value": "ibm-common-service-operator"
+                                    },
+                                    {
+                                        "name": "IBM_CS_WEBHOOK_IMAGE",
+                                        "value": "icr.io/cpopen/cpfs/ibm-cs-webhook@sha256:c3e700cfee2e2b9c28684d7468837a51aaf96480f80d7c580bf88767dd1ff367"
+                                    },
+                                    {
+                                        "name": "IBM_SECRETSHARE_OPERATOR_IMAGE",
+                                        "value": "icr.io/cpopen/cpfs/ibm-secretshare-operator@sha256:cbf38c8477547fe80b6b0656ec6a3eb020bb940844ea43cca77830e8ff6dd7be"
+                                    },
+                                    {
+                                        "name": "IBM_ZEN_OPERATOR_IMAGE",
+                                        "value": "icr.io/cpopen/ibm-zen-operator@sha256:9860d37b62af20267274b82c779e41ca4044a4a8dd9d95a664584d8eb0669540"
+                                    },
+                                    {
+                                        "name": "OPERATOR_CONDITION_NAME",
+                                        "value": "ibm-common-service-operator.v3.23.13"
+                                    }
+                                ],
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "500m",
+                                        "memory": "512Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "100m",
+                                        "memory": "200Mi"
+                                    }
+                                },
+                                "livenessProbe": {
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 8081,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 120,
+                                    "timeoutSeconds": 10,
+                                    "periodSeconds": 60,
+                                    "successThreshold": 1,
+                                    "failureThreshold": 10
+                                },
+                                "readinessProbe": {
+                                    "httpGet": {
+                                        "path": "/readyz",
+                                        "port": 8081,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 3,
+                                    "timeoutSeconds": 3,
+                                    "periodSeconds": 20,
+                                    "successThreshold": 1,
+                                    "failureThreshold": 10
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "imagePullPolicy": "IfNotPresent",
+                                "securityContext": {
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    },
+                                    "privileged": false,
+                                    "runAsNonRoot": true,
+                                    "readOnlyRootFilesystem": true,
+                                    "allowPrivilegeEscalation": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 10,
+                        "dnsPolicy": "ClusterFirst",
+                        "serviceAccountName": "ibm-common-service-operator",
+                        "serviceAccount": "ibm-common-service-operator",
+                        "securityContext": {},
+                        "affinity": {
+                            "nodeAffinity": {
+                                "requiredDuringSchedulingIgnoredDuringExecution": {
+                                    "nodeSelectorTerms": [
+                                        {
+                                            "matchExpressions": [
+                                                {
+                                                    "key": "kubernetes.io/arch",
+                                                    "operator": "In",
+                                                    "values": [
+                                                        "amd64",
+                                                        "ppc64le",
+                                                        "s390x"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "schedulerName": "default-scheduler"
+                    }
+                },
+                "strategy": {
+                    "type": "Recreate"
+                },
+                "revisionHistoryLimit": 1,
+                "progressDeadlineSeconds": 600
+            },
+            "status": {
+                "observedGeneration": 21,
+                "replicas": 1,
+                "updatedReplicas": 1,
+                "readyReplicas": 1,
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "type": "Progressing",
+                        "status": "True",
+                        "lastUpdateTime": "2024-04-05T15:25:18Z",
+                        "lastTransitionTime": "2024-03-21T16:25:36Z",
+                        "reason": "NewReplicaSetAvailable",
+                        "message": "ReplicaSet \"ibm-common-service-operator-6fdfd5b48b\" has successfully progressed."
+                    },
+                    {
+                        "type": "Available",
+                        "status": "True",
+                        "lastUpdateTime": "2024-04-20T17:24:11Z",
+                        "lastTransitionTime": "2024-04-20T17:24:11Z",
+                        "reason": "MinimumReplicasAvailable",
+                        "message": "Deployment has minimum availability."
+                    }
+                ]
+            }
+        }
+    ]
+}
